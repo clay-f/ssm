@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'application'
+    id("org.springframework.boot") version "2.2.1.RELEASE"
+    id("io.spring.dependency-management") version "1.0.8.RELEASE"
+}
+
+repositories {
+    mavenCentral()
+}
+mainClassName = 'com.f.userservice.App'
+group 'com.f'
+version '1.0-SNAPSHOT'
+
+test {
+    useJUnitPlatform()
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    implementation 'com.zaxxer:HikariCP:3.4.1'
+    implementation 'mysql:mysql-connector-java:8.0.18'
+    compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.1.10'
+    implementation('org.quartz-scheduler:quartz:2.3.1') {
+        exclude group: 'com.mchange'
+    }
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'com.google.guava:guava:28.1-jre'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.5.2'
+
+
+}
