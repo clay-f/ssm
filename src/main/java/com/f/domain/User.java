@@ -1,5 +1,7 @@
 package com.f.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.time.Instant;
 
 public class User {
@@ -51,5 +53,16 @@ public class User {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", passwd='" + passwd + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

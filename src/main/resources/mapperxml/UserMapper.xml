@@ -28,10 +28,8 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.f.domain.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into users (username, passwd, created_at, 
-      updated_at)
-    values (#{username,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
-      #{updatedAt,jdbcType=TIMESTAMP})
+    insert into users (username, passwd)
+    values (#{username,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.f.domain.User" useGeneratedKeys="true">
     <!--@mbg.generated-->

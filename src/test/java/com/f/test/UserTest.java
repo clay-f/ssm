@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest(classes = App.class)
-public class SelectUser {
+public class UserTest {
     @Autowired
     private UserService userService;
 
@@ -34,5 +34,13 @@ public class SelectUser {
                 );
 
         System.out.println(page);
+    }
+
+    @Test
+    void insert() {
+        User user = new User();
+        user.setUsername("张飞5号");
+        user.setPasswd("1111");
+        userService.insertWithUserMapper(user);
     }
 }

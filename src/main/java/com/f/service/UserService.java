@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import com.f.domain.User;
 import com.f.mapper.UserMapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,23 @@ public class UserService {
 
     public int deleteByPrimaryKey(Long id) {
         return userMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 在事物里面，直接调用
+     */
+    @Transactional
+    public void  insertDirectly(User user) {
+        insert(user);
+    }
+
+    /**
+     *  使用 userMapper 间接调用
+     * @param use
+     */
+    @Transactional
+    public void insertWithUserMapper(User use) {
+        userMapper.insert(use);
     }
 
 
